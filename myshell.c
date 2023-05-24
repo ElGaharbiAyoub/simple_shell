@@ -126,6 +126,13 @@ char **spt_args(char *buffer, char *del)
      return (toks);
 }
 
+/**
+ * handle_exit - handle the exit commande 
+ * @first_arg: the first command
+ * @buffer: the main buffer
+ * @argv: the array of args
+ */
+
 void handle_exit(char *first_arg, char *buffer, char **argv) {
     int num_exit = 0;
     
