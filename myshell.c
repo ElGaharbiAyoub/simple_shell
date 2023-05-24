@@ -102,19 +102,31 @@ char **spt_args(char *buffer, char *del)
      return (toks);
 }
 
+void handle_exit(char *first_arg, char *buffer, char **argv) {
+    int num_exit = 0;
+    
+    if (argv[1]) {
+        num_exit = _atoi(argv[1]);
+    }
+
+    free(first_arg);
+    free(buffer);
+    free(argv);
+    exit(num_exit);
+}
+
  int main()
  {
-    char *buffer = NULL;
-    char *first_arg = NULL;
+    char *buffer = NULL, first_arg = NULL;
     char **argv = NULL;
-    int num_exit = 0;
+    /**int num_exit = 0;*/
     size_t buffer_s = 0;
     pid_t child_pid;
     int status, nbr_chars;
 
     while (1){
         if (isatty(STDIN_FILENO))
-          printf("#welcom$ ");
+          write(STDERR_FILENO, "$ ", 2);
         nbr_chars = getline(&buffer, &buffer_s, stdin);
         if (nbr_chars == -1)
         {
@@ -122,17 +134,16 @@ char **spt_args(char *buffer, char *del)
             free(first_arg), free(buffer), free(argv);
             exit(1);
         }
+        if (nbr_chars == 0)/* exit if ctrl- d */
+			{
+				if (isatty(STDIN_FILENO))
+					write(STDERR_FILENO, "\n", 1);
+				exit(0);
+			}
         argv = spt_args(buffer, " \t\n");
-        if (argv[0])
-        {
-            if (strcmp(argv[0], "exit") == 0)
-            {
-                if (argv[1])
-                    num_exit = _atoi(argv[1]);
-                free(first_arg), free(buffer), free(argv);
-                exit(num_exit);
-            }
-        }
+    
+            if (argv[0] && strcmp(argv[0], "exit") == 0)
+               handle_exit(first_arg, buffer, argv);
         child_pid =fork();
         if (child_pid == -1)
         {
