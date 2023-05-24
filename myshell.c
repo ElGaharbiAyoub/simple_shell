@@ -39,6 +39,12 @@ int _atoi(char *s)
 	return (toi * sign);
 }
 
+/**
+ * _getenv - searches the environment variables at runtime 
+ * @name: fan entry with the specified name
+ * Return: a pointer to the variable’s value on success or NULL
+ */
+
 char *_getenv(const char *name)
 {
     int i = 0;
