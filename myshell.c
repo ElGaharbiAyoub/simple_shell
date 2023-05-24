@@ -117,7 +117,7 @@ void handle_exit(char *first_arg, char *buffer, char **argv) {
 
  int main()
  {
-    char *buffer = NULL, first_arg = NULL;
+    char *buffer = NULL, *first_arg = NULL;
     char **argv = NULL;
     /**int num_exit = 0;*/
     size_t buffer_s = 0;
