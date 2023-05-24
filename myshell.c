@@ -162,6 +162,7 @@ void handle_exit(char *first_arg, char *buffer, char **argv) {
         else
             wait(&status);
         free(first_arg), free(argv);
+        first_arg = NULL, argv= NULL;
     }
     return (0);
  }
