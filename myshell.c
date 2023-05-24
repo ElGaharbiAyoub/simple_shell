@@ -64,6 +64,12 @@ char *_getenv(const char *name)
     return (NULL);
 }
 
+/**
+ * _getdir_forcamd - get a directory based on the command provided 
+ * @comd: command provided by the user
+ * Return: a pointer to dir or NULL
+ */
+
 char *_getdir_forcamd( char *comd)
 {
     char *path;
