@@ -126,11 +126,10 @@ void handle_exit(char *first_arg, char *buffer, char **argv) {
 
     while (1){
         if (isatty(STDIN_FILENO))
-          write(STDERR_FILENO, "$ ", 2);
+            write(STDERR_FILENO, "$ ", 2);
         nbr_chars = getline(&buffer, &buffer_s, stdin);
         if (nbr_chars == -1)
         {
-            printf("\n");
             free(first_arg), free(buffer), free(argv);
             exit(1);
         }
@@ -138,7 +137,7 @@ void handle_exit(char *first_arg, char *buffer, char **argv) {
 			{
 				if (isatty(STDIN_FILENO))
 					write(STDERR_FILENO, "\n", 1);
-				exit(0);
+				exit(1);
 			}
         argv = spt_args(buffer, " \t\n");
     
