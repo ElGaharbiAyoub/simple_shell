@@ -101,6 +101,13 @@ char *_getdir_forcamd( char *comd)
     return (NULL);
 }
 
+/**
+ * spt_args - split tha args 
+ * @buffer: the main buffer to split
+ * @spt_args: the delimeter to split with
+ * Return: a pointer to splited buffer or NULL
+ */
+
 char **spt_args(char *buffer, char *del)
 {
      char **toks;
