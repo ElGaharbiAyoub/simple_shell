@@ -131,7 +131,7 @@ void handle_exit(char *first_arg, char *buffer, char **argv) {
         if (nbr_chars == -1)
         {
             free(first_arg), free(buffer), free(argv);
-            exit(1);
+            exit(0);
         }
         if (nbr_chars == 0)/* exit if ctrl- d */
 			{
