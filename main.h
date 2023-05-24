@@ -11,7 +11,5 @@
 #include <sys/wait.h>
 
 
-// char *_getenv(const char *name);
-// int _atoi(char *s);
 
 #endif
