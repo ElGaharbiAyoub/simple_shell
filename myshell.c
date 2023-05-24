@@ -2,6 +2,12 @@
 
 extern char **environ;
 
+/**
+ * _atoi - convert a string of characters to an integer value
+ * @s: a string to convert
+ * Return: value on success or NULL on failure
+ */
+
 int _atoi(char *s)
 {
 	unsigned int count = 0, size = 0, toi = 0;
@@ -32,7 +38,6 @@ int _atoi(char *s)
 	}
 	return (toi * sign);
 }
-
 
 char *_getenv(const char *name)
 {
