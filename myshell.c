@@ -2,6 +2,12 @@
 
 extern char **environ;
 
+/**
+ * _atoi - convert a string of characters to an integer value
+ * @s: a string to convert
+ * Return: value on success or NULL on failure
+ */
+
 int _atoi(char *s)
 {
 	unsigned int count = 0, size = 0, toi = 0;
@@ -33,6 +39,11 @@ int _atoi(char *s)
 	return (toi * sign);
 }
 
+/**
+ * _getenv - searches the environment variables at runtime 
+ * @name: fan entry with the specified name
+ * Return: a pointer to the variable’s value on success or NULL
+ */
 
 char *_getenv(const char *name)
 {
@@ -52,6 +63,12 @@ char *_getenv(const char *name)
     }
     return (NULL);
 }
+
+/**
+ * _getdir_forcamd - get a directory based on the command provided 
+ * @comd: command provided by the user
+ * Return: a pointer to dir or NULL
+ */
 
 char *_getdir_forcamd( char *comd)
 {
@@ -84,6 +101,13 @@ char *_getdir_forcamd( char *comd)
     return (NULL);
 }
 
+/**
+ * spt_args - split tha args 
+ * @buffer: the main buffer to split
+ * @spt_args: the delimeter to split with
+ * Return: a pointer to splited buffer or NULL
+ */
+
 char **spt_args(char *buffer, char *del)
 {
      char **toks;
@@ -102,8 +126,15 @@ char **spt_args(char *buffer, char *del)
      return (toks);
 }
 
-void handle_exit(char *first_arg, char *buffer, char **argv) 
-{
+
+/**
+ * handle_exit - handle the exit commande 
+ * @first_arg: the first command
+ * @buffer: the main buffer
+ * @argv: the array of args
+ */
+
+void handle_exit(char *first_arg, char *buffer, char **argv) {
     int num_exit = 0;
     
     if (argv[1])
@@ -112,8 +143,12 @@ void handle_exit(char *first_arg, char *buffer, char **argv)
     free(first_arg), free(buffer) ,free(argv);
     exit(num_exit);
 }
+/**
+ * main - the main logic of the program 
+ * Return: 0 on success or 1 otherwise
+ */
 
- int main()
+int main()
  {
     char *buffer = NULL, *first_arg = NULL;
     char **argv = NULL;
