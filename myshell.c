@@ -145,8 +145,12 @@ void handle_exit(char *first_arg, char *buffer, char **argv) {
     free(argv);
     exit(num_exit);
 }
+/**
+ * main - the main logic of the program 
+ * Return: 0 on success or 1 otherwise
+ */
 
- int main()
+int main()
  {
     char *buffer = NULL, *first_arg = NULL;
     char **argv = NULL;
