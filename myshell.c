@@ -102,16 +102,14 @@ char **spt_args(char *buffer, char *del)
      return (toks);
 }
 
-void handle_exit(char *first_arg, char *buffer, char **argv) {
+void handle_exit(char *first_arg, char *buffer, char **argv) 
+{
     int num_exit = 0;
     
-    if (argv[1]) {
+    if (argv[1])
         num_exit = _atoi(argv[1]);
-    }
 
-    free(first_arg);
-    free(buffer);
-    free(argv);
+    free(first_arg), free(buffer) ,free(argv);
     exit(num_exit);
 }
 
@@ -141,8 +139,8 @@ void handle_exit(char *first_arg, char *buffer, char **argv) {
 			}
         argv = spt_args(buffer, " \t\n");
     
-            if (argv[0] && strcmp(argv[0], "exit") == 0)
-               handle_exit(first_arg, buffer, argv);
+        if (argv[0] && strcmp(argv[0], "exit") == 0)
+            handle_exit(first_arg, buffer, argv);
         child_pid =fork();
         if (child_pid == -1)
         {
