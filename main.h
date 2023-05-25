@@ -10,6 +10,12 @@
 #include <sys/stat.h>
 #include <sys/wait.h>
 
+int _strlen(char *s);
+int _atoi(char *s);
+char **spt_args(char *buffer, char *del);
 
+void handle_exit(char *first_arg, char *buffer, char **argv);
+char *_getdir_forcamd(char *comd);
+char *_getenv(const char *name);
 
 #endif
