@@ -10,6 +10,8 @@
 #include <sys/stat.h>
 #include <sys/wait.h>
 
+extern char **environ;
+
 int _strlen(char *s);
 int _atoi(char *s);
 char **spt_args(char *buffer, char *del);

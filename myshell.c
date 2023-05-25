@@ -1,6 +1,6 @@
 #include "main.h"
 
-extern char **environ;
+
 
 /**
  * _getenv - searches the environment variables at runtime
